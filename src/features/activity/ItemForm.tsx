@@ -59,7 +59,11 @@ const ItemForm = (props: any) => {
 					priority: Yup.string(),
 				})}
 				onSubmit={async (values) => {
-					await createItem({activity_group_id: props.activityId, ...values})
+					await createItem({
+						...values,
+						activity_group_id: props.activityId, 
+						priority: priority,
+					})
 				}}
 			>
 				{({

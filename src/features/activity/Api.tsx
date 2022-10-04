@@ -72,7 +72,6 @@ export const activityApi = createApi({
 		}),
 		listItems: build.query<any, any>({
 			query: (params) => {
-				console.log(params)
 				return {
 					url: `/todo-items?activity_group_id=${params.activityId}`,
 					method: 'GET',
