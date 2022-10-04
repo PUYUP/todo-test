@@ -5,6 +5,7 @@ import Grid from '@mui/material/Grid'
 import Checkbox from '@mui/material/Checkbox';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
+import CircleIcon from '@mui/icons-material/Circle';
 import { useDeleteItemMutation, useUpdateItemMutation } from './Api';
 
 const ItemCell = (props: any) => {
@@ -27,7 +28,10 @@ const ItemCell = (props: any) => {
 				<CardContent>
 					<Grid container alignItems={'center'}>
 						<Grid item><Checkbox name={`is-active-${props.id}`} onChange={handleActiveChange} checked={active} /></Grid>
-						<Grid item paddingLeft={1}>{props.title}</Grid>
+						<Grid item paddingLeft={1} sx={{ display: 'flex', alignItems: 'center' }}>
+							<CircleIcon sx={{ marginRight: 1 }} color="error" />
+							{props.title}
+						</Grid>
 						<Grid item marginLeft={'auto'}>
 							<IconButton color="error" onClick={handleDelete}>
 								<DeleteIcon />

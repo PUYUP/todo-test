@@ -16,6 +16,7 @@ export const activityApi = createApi({
 					body: body,
 				}
 			},
+			invalidatesTags: ['Activity'],
 		}),
 		listActivity: build.query<any, any>({
 			query: ({ ...params }) => {
@@ -27,6 +28,10 @@ export const activityApi = createApi({
 					method: 'GET',
 				}
 			},
+			providesTags: (result, error, arg) =>
+				result
+				? [...result?.data?.map(({ id }: any) => ({ type: 'Activity' as const, id })), 'Activity']
+				: ['Activity'],
 		}),
 		retrieveActivity: build.query<any, any>({
 			query: (activityId) => {

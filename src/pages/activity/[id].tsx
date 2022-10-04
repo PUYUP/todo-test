@@ -1,4 +1,5 @@
 import * as React from 'react'
+import Head from 'next/head'
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
@@ -30,6 +31,10 @@ const ActivityPage = (props: any) => {
 
 	return (
 		<>
+			<Head>
+				<title>Aktifitas</title>
+			</Head>
+
 			<Layout>
 				<Grid data-cy="activity-heading" container>
 					<Grid item>
