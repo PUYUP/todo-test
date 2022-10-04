@@ -14,10 +14,10 @@ const ActivityItem = (props: any) => {
 
 	return (
 		<Grid item xs={12} sm={6} md={3} onClick={handleItemClick}>
-			<Card>
-				<CardContent>
+			<Card sx={{ height: '100%' }}>
+				<CardContent sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
 					<Typography fontSize={18}>{props.title}</Typography>
-					<Typography fontSize={12} component="div">
+					<Typography fontSize={12} component="div" marginTop={'auto'}>
 						{moment(props.created_at).format('MMMM Do YYYY, h:mm:ss a')}
 					</Typography>
 				</CardContent>
