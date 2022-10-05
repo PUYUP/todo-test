@@ -25,9 +25,7 @@ const ActivityList = () => {
 			)
 		} else {
 			return (
-				<>
-					<Typography data-cy="activity-empty">Belum ada aktifitas</Typography>
-				</>
+				<Typography data-cy="activity-empty-state">Belum ada aktifitas</Typography>
 			)
 		}
 	}

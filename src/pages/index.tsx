@@ -42,7 +42,7 @@ export default function Home() {
           </Grid>
 
           <Grid item marginLeft={'auto'}>
-            <Button data-cy="activity-add" variant="contained" onClick={handleAddTodo}>Tambah</Button>
+            <Button data-cy="activity-add-button" variant="contained" onClick={handleAddTodo}>Tambah</Button>
           </Grid>
         </Grid>
 
