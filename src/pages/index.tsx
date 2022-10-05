@@ -46,7 +46,7 @@ export default function Home() {
         </Grid>
 
         <Box paddingTop={2}>
-          <ActivityList />
+          <ActivityList data-cy="activity-list" />
         </Box>
       </Layout>
 
@@ -60,7 +60,7 @@ export default function Home() {
 
         <DialogContent>
           <Box paddingTop={1}>
-            <ActivityForm onSubmitSuccess={handleSubmitSuccess} />
+            <ActivityForm data-cy="activity-form" onSubmitSuccess={handleSubmitSuccess} />
           </Box>
         </DialogContent>
       </Dialog>

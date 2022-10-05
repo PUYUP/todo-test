@@ -15,7 +15,7 @@ const ActivityList = () => {
 				<Grid container spacing={3}>
 					{activities.data.map((item: any, index: number) => {
 						return (
-							<ActivityItem {...item} key={index} />
+							<ActivityItem data-cy="activity-item" {...item} key={index} />
 						)
 					})}
 				</Grid>

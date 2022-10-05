@@ -19,7 +19,7 @@ const ItemList = (props: any) => {
 				<Box paddingTop={3}>
 					{items.data.map((item: any, index: number) => {
 						return (
-							<ItemCell {...item} key={index} />
+							<ItemCell data-cy="activity-cell" {...item} key={index} />
 						)
 					})}
 				</Box>

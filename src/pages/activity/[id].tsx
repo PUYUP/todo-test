@@ -49,7 +49,7 @@ const ActivityPage = (props: any) => {
 				</Grid>
 
 				<Box>
-					<ItemList activityId={activityId} />
+					<ItemList data-cy="activity-items" activityId={activityId} />
 				</Box>
 			</Layout>
 
@@ -63,7 +63,7 @@ const ActivityPage = (props: any) => {
 
 				<DialogContent>
 					<Box paddingTop={1}>
-						<ItemForm onSubmitSuccess={handleSubmitSuccess} activityId={activityId} />
+						<ItemForm data-cy="activity-item-form" onSubmitSuccess={handleSubmitSuccess} activityId={activityId} />
 					</Box>
 				</DialogContent>
 			</Dialog>
