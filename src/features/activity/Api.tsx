@@ -18,6 +18,15 @@ export const activityApi = createApi({
 			},
 			invalidatesTags: ['Activity'],
 		}),
+		deleteActivity: build.mutation<any, any>({
+			query: (id) => {
+				return {
+					url: `/activity-groups/${id}`,
+					method: 'DELETE',
+				}
+			},
+			invalidatesTags: ['Activity'],
+		}),
 		listActivity: build.query<any, any>({
 			query: ({ ...params }) => {
 				params = Object.fromEntries(Object.entries(params).filter(([_, v]) => v));
@@ -87,6 +96,7 @@ export const activityApi = createApi({
 
 export const {
 	useCreateActivityMutation,
+	useDeleteActivityMutation,
 	useListActivityQuery,
 
 	useCreateItemMutation,

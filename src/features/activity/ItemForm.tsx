@@ -8,7 +8,7 @@ import Button from '@mui/material/Button'
 import Select, { SelectChangeEvent } from '@mui/material/Select'
 import InputLabel from '@mui/material/InputLabel'
 import MenuItem from '@mui/material/MenuItem'
-import { useCreateItemMutation } from './Api'
+import { useCreateItemMutation, useUpdateItemMutation } from './Api'
 
 const LEVELS = [
 	{
@@ -35,35 +35,54 @@ const LEVELS = [
 
 const ItemForm = (props: any) => {
 	const [priority, setPriority] = React.useState<string>('very-high')
-	const [createItem, status] = useCreateItemMutation()
+	const [createItem, createStatus] = useCreateItemMutation()
+	const [updateItem, updateStatus] = useUpdateItemMutation()
+	const { item } = props
 
 	const handlePriorityChange = (event: SelectChangeEvent) => {
 		setPriority(event.target.value as string)
 	}
 
 	React.useEffect(() => {
-		if (status.isSuccess) {
-			props.onSubmitSuccess(status.data)
+		if (updateStatus.isSuccess || updateStatus.isSuccess) {
+			props.onSubmitSuccess(createStatus.data | updateStatus.data)
 		}
-	}, [status])
+	}, [createStatus, updateStatus])
+
+	React.useEffect(() => {
+		if (item) {
+			setPriority(item.priority)
+		}
+	}, [item])
 
 	return (
 		<>
 			<Formik
+				enableReinitialize={true}
 				initialValues={{
-					title: '',
-					priority: priority,
+					title: item ? item.title : '',
+					priority: item ? item.priority : priority,
 				}}
 				validationSchema={Yup.object({
 					title: Yup.string().required(),
 					priority: Yup.string(),
 				})}
 				onSubmit={async (values) => {
-					await createItem({
-						...values,
-						activity_group_id: props.activityId, 
-						priority: priority,
-					})
+					if (item) {
+						// edit
+						await updateItem({
+							...values,
+							id: item.id,
+							priority: priority,
+						})
+					} else {
+						// add
+						await createItem({
+							...values,
+							activity_group_id: props.activityId, 
+							priority: priority,
+						})
+					}
 				}}
 			>
 				{({
@@ -105,7 +124,9 @@ const ItemForm = (props: any) => {
 						</FormControl>
 
 						<Box textAlign={'center'}>
-							<Button type="submit" variant="contained">Tambah</Button>
+							<Button type="submit" variant="contained">
+								{item ? 'Update' : 'Tambah'}
+							</Button>
 						</Box>
 					</Form>
 				)}
