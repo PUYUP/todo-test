@@ -44,7 +44,7 @@ const ActivityPage = (props: any) => {
 					</Grid>
 
 					<Grid item marginLeft={'auto'}>
-						<Button data-cy="activity-add-item" variant="contained" onClick={handleAddItem}>Tambah Item</Button>
+						<Button data-cy="todo-add-button" variant="contained" onClick={handleAddItem}>Tambah Item</Button>
 					</Grid>
 				</Grid>
 
@@ -57,7 +57,7 @@ const ActivityPage = (props: any) => {
 				<DialogTitle>
 					<Grid container>
 						<Grid item>Tambah Item</Grid>
-						<Grid item marginLeft="auto" textAlign="right"><Button onClick={handleCloseEditor}>Cancel</Button></Grid>
+						<Grid item data-cy="modal-add-close-button" marginLeft="auto" textAlign="right"><Button onClick={handleCloseEditor}>Cancel</Button></Grid>
 					</Grid>
 				</DialogTitle>
 

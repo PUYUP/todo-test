@@ -23,7 +23,7 @@ const ItemList = (props: any) => {
 		} else {
 			return (
 				<>
-					<Typography data-cy="activity-cell-empty">Belum ada item</Typography>
+					<Typography data-cy="todo-empty-state">Belum ada item</Typography>
 				</>
 			)
 		}

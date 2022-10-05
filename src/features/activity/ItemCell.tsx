@@ -89,7 +89,7 @@ const ItemCell = (props: any) => {
 							<IconButton data-cy="activity-item-delete" color="error" onClick={handleDelete}>
 								<DeleteIcon />
 							</IconButton>
-							<IconButton data-cy="activity-item-edit" onClick={handleEdit} sx={{ marginLeft: 2 }}>
+							<IconButton data-cy="todo-edit-button" onClick={handleEdit} sx={{ marginLeft: 2 }}>
 								<EditIcon />
 							</IconButton>
 						</Grid>
