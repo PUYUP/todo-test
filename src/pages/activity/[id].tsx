@@ -38,13 +38,13 @@ const ActivityPage = (props: any) => {
 			<Layout>
 				<Grid data-cy="activity-heading" container>
 					<Grid item>
-						<Typography component="h3" fontWeight={700} fontSize={20}>
+						<Typography data-cy="activity-title" component="h3" fontWeight={700} fontSize={20}>
 							{activity?.title}
 						</Typography>
 					</Grid>
 
 					<Grid item marginLeft={'auto'}>
-						<Button variant="contained" onClick={handleAddItem}>Tambah Item</Button>
+						<Button data-cy="activity-add-item" variant="contained" onClick={handleAddItem}>Tambah Item</Button>
 					</Grid>
 				</Grid>
 

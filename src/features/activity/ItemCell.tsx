@@ -47,13 +47,13 @@ const ItemCell = (props: any) => {
 			<Card sx={{ width: '100%', marginBottom: 2 }}>
 				<CardContent>
 					<Grid container alignItems={'center'}>
-						<Grid item><Checkbox name={`is-active-${props.id}`} onChange={handleActiveChange} checked={active} /></Grid>
-						<Grid item paddingLeft={1} sx={{ display: 'flex', alignItems: 'center' }}>
+						<Grid item><Checkbox data-cy="activity-item-mark-done" name={`is-active-${props.id}`} onChange={handleActiveChange} checked={active} /></Grid>
+						<Grid item data-cy="activity-item-title" paddingLeft={1} sx={{ display: 'flex', alignItems: 'center' }}>
 							<CircleIcon sx={{ marginRight: 1, color: priorityColor }} />
 							<span>{props.title}</span>
 						</Grid>
 						<Grid item marginLeft={'auto'}>
-							<IconButton color="error" onClick={handleDelete}>
+							<IconButton data-cy="activity-item-delete" color="error" onClick={handleDelete}>
 								<DeleteIcon />
 							</IconButton>
 						</Grid>

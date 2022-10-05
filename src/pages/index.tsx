@@ -37,11 +37,12 @@ export default function Home() {
       <Layout>
         <Grid data-cy="activity-heading" container>
           <Grid item>
-            <Typography component="h3" fontWeight={700} fontSize={20}>Activity</Typography>
+            <Typography data-cy="activity-title" component="h3" fontWeight={700} fontSize={20}>Activity</Typography>
+            <Typography data-cy="activity-subtitle">Daftar aktifitas Anda</Typography>
           </Grid>
 
           <Grid item marginLeft={'auto'}>
-            <Button variant="contained" onClick={handleAddTodo}>Tambah</Button>
+            <Button data-cy="activity-add" variant="contained" onClick={handleAddTodo}>Tambah</Button>
           </Grid>
         </Grid>
 

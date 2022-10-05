@@ -16,8 +16,8 @@ const ActivityItem = (props: any) => {
 		<Grid item xs={12} sm={6} md={3} onClick={handleItemClick}>
 			<Card sx={{ height: '100%' }}>
 				<CardContent sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-					<Typography fontSize={18}>{props.title}</Typography>
-					<Typography fontSize={12} component="div" marginTop={'auto'}>
+					<Typography data-cy="activity-title" fontSize={18}>{props.title}</Typography>
+					<Typography data-cy="activity-date" fontSize={12} component="div" marginTop={'auto'}>
 						{moment(props.created_at).format('MMMM Do YYYY, h:mm:ss a')}
 					</Typography>
 				</CardContent>
